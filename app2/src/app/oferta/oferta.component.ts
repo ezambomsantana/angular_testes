@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router'
 import { OfertasService } from '../ofertas.service'
 import { Oferta } from '../shared/oferta.model'
 
+import { interval } from 'rxjs';
+import { timeInterval } from 'rxjs/operators'
+
 @Component({
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
@@ -22,7 +25,24 @@ export class OfertaComponent implements OnInit {
     this.ofertasService.getOfertaPorId(this.route.snapshot.params['id'])
       .then(( oferta: Oferta ) => {
         this.oferta = oferta
-      }) 
+      })
+
+
+
+    
+     // console.log("concluido")
+     // this.route.params.subscribe(
+     //   (parametro: any) => {console.log(parametro)},
+    //    (erro: any) => {console.log(erro)}
+     // )
+
+//    let val = interval(500)
+
+ //   val.subscribe((interval: number) => {
+ //     console.log(interval)
+ //   })
+
+
   }
 
 }
