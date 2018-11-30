@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 
 import { URL_API } from '../app/app.api'
 
+import {map, retry, catchError} from "rxjs/operators";
+
 
 @Injectable()
 export class OfertasService {
@@ -40,6 +42,15 @@ export class OfertasService {
         return this.http.get(`${URL_API}/onde-fica?id=${id}`)
         .toPromise()
         .then((resposta: any) => resposta.shift().descricao)
+    }
+
+    public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+        return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
+            .pipe(
+                retry(10),
+                map((resposta: any) => resposta)
+            )
+
     }
 
 }

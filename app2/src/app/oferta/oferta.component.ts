@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router'
 import { OfertasService } from '../ofertas.service'
 import { Oferta } from '../shared/oferta.model'
 
-import { interval } from 'rxjs';
-import { timeInterval } from 'rxjs/operators'
+import { interval, Observer, Observable } from 'rxjs';
+//import { timeInterval } from 'rxjs/operators'
 
 @Component({
   selector: 'app-oferta',
@@ -36,11 +36,22 @@ export class OfertaComponent implements OnInit {
     //    (erro: any) => {console.log(erro)}
      // )
 
-//    let val = interval(500)
+ //   let val = interval(500)
 
  //   val.subscribe((interval: number) => {
  //     console.log(interval)
  //   })
+
+ //     let observable = new Observable((observer: Observer<string>) => {
+  //      observer.next('teste evento')
+  //      observer.error('erro')
+  //   })
+
+  //    observable.subscribe(
+  //      (resultado: any) => console.log(resultado),
+  //      (erro: string) => console.log(erro),
+  //      () => console.log('finalizou')
+  //    )
 
 
   }
